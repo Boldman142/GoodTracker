@@ -177,3 +177,19 @@ CORS_ALLOW_ALL_ORIGINS = False
 
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 TELEGRAM_ID = os.getenv('TELEGRAM_ID')
+
+
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL')
+
+
+CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND')
+CELERY_TIMEZONE = os.getenv('CELERY_TIMEZONE')
+CELERY_TASK_TRACK_STARTED = os.getenv('CELERY_TASK_TRACK_STARTED')
+CELERY_TASK_TIME_LIMIT = os.getenv('CELERY_TASK_TIME_LIMIT')
+
+CELERY_BEAT_SCHEDULE = {
+    "mail_tg_reminder": {
+        "task": "mail_tg.tasks.mail_tg_reminder",
+        "schedule": timedelta(seconds=15),
+    },
+}

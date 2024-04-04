@@ -36,7 +36,6 @@ class HabitNice(models.Model):
                               on_delete=models.CASCADE, **NULLABLE)
 
     action = models.TextField(verbose_name='действие')
-    public = models.BooleanField(default=False, verbose_name='видно ли всем')
 
     def __str__(self):
         return self.name
