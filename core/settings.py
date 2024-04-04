@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'habit',
     'auth_api',
     'users',
+    'mail_tg',
 ]
 
 MIDDLEWARE = [
@@ -173,3 +174,6 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False
+
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+TELEGRAM_ID = os.getenv('TELEGRAM_ID')
