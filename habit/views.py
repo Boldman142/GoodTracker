@@ -27,10 +27,6 @@ class HabitGoodPublicListAPIView(generics.ListAPIView):
     queryset = HabitGood.objects.filter(public=True)
     permission_classes = [IsAuthenticated]
 
-    filter_backends = [OrderingFilter]
-    ordering_fields = ('id',)
-    pagination_class = ListPaginator
-
 
 class HabitGoodListAPIView(generics.ListAPIView):
     """APIView для просмотра списка полезных привычек"""

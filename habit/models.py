@@ -37,7 +37,6 @@ class HabitNice(models.Model):
 
     action = models.TextField(verbose_name='действие')
 
-    need_time = models.TimeField(verbose_name='сколько времени займет')
     public = models.BooleanField(default=False, verbose_name='видно ли всем')
 
     def __str__(self):
