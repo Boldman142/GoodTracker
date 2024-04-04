@@ -4,6 +4,8 @@ from rest_framework.serializers import ValidationError
 
 
 class PeriodValidator:
+    """Валидатор того, что повторения будут не реже 1 раза в неделю"""
+
     def __init__(self, field):
         self.field = field
 
@@ -16,6 +18,9 @@ class PeriodValidator:
 
 
 class ChooseValidator:
+    """Валидатор того, в награду будет либо приятная привычка, либо вознаграждение
+    (или вообще ничего)"""
+
     def __init__(self, field1, field2):
         self.field1 = field1
         self.field2 = field2
@@ -30,6 +35,8 @@ class ChooseValidator:
 
 
 class TimeValidator:
+    """Валидатор того, что время, требуемое на привычку было не больше 120 секунд"""
+
     def __init__(self, field):
         self.field = field
 

@@ -8,15 +8,10 @@ from mail_tg.services import TGBot
 
 @shared_task
 def mail_tg_reminder():
-    print("hi!")
     time = datetime.datetime.now().time()
     time_need = datetime.time(hour=time.hour, minute=time.minute)
-    print(time)
-    print(time_need)
-    print("hi!")
     mail_list = HabitGood.objects.filter(time=time_need)
     if len(mail_list) > 0:
-        print("hi!14566")
         bot = TGBot()
         for mail in mail_list:
             if mail.reward:
