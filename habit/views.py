@@ -38,6 +38,11 @@ class HabitGoodListAPIView(generics.ListAPIView):
     ordering_fields = ('id',)
     pagination_class = ListPaginator
 
+    def get_queryset(self):
+        pk = self.request.user
+        self.queryset = HabitGood.objects.filter(owner_id=pk)
+        return self.queryset
+
     # def list(self, request, *args, **kwargs):
     #     queryset = HabitGood.objects.filter(owner_id=request.get['id'])
     #     super().list(self, request, *args, **kwargs)
