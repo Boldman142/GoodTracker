@@ -1,6 +1,7 @@
 import datetime
 
 from celery import shared_task
+from django.utils import timezone
 
 from habit.models import HabitGood, HabitNice
 from mail_tg.services import TGBot
@@ -8,9 +9,7 @@ from mail_tg.services import TGBot
 
 @shared_task
 def mail_tg_reminder():
-    time = datetime.datetime.now().time()
-    time_need = datetime.time(hour=time.hour, minute=time.minute)
-    mail_list = HabitGood.objects.filter(time=time_need)
+    mail_list = HabitGood.objects.filter(time__lt=timezone.now() - timezone.timedelta(minutes=1))
     if len(mail_list) > 0:
         bot = TGBot()
         for mail in mail_list:
